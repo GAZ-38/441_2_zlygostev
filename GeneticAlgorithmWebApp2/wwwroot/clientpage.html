@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genetic Algorithm Web App</title>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center"> Tournament schedule builder</h1>
+        <br />
+        <div>
+            <div>
+                <div>
+                    <h2>Input Parameters</h2>
+                </div>
+                <form id="inputParameters" onsubmit="createExperiment(); return false;">
+                    <hr />
+                    <div>
+                        <label for="participants"> Participants:</label>
+                        <input type="number" min="2" value="10" id="participants" name="participants" class="form-control" required>
+                    </div>
+                    <br />
+                    <div>
+                        <label for="rounds"> Rounds:</label>
+                        <input type="number" min="1" value="4" id="rounds" name="rounds" class="form-control" required>
+                    </div>
+                    <br />
+                    <div>
+                        <label for="venues"> Venues:</label>
+                        <input type="number" min="2" value="12" id="venues" name="venues" class="form-control" required>
+                    </div>
+                    <hr />
+                    <div>
+                        <label for="population"> Population size:</label>
+                        <input type="number" min="10" value="16" id="population" name="population" class="form-control" required>
+                    </div>
+                    <br />
+                    <div>
+                        <label for="survivors"> Surviving population part size:</label>
+                        <input type="number" min="0" value="5" id="survivors" name="survivors" class="form-control" required>
+                    </div>
+                    <br />
+                    <div>
+                        <label for="mutation" class="form-label">Gene mutation chance:</label>
+                        <input type="number" step="0.01" min="0" max="1" value="0.05" id="mutation" name="mutation" class="form-control" required>
+                    </div>
+                    <hr />
+                    <button type="submit" class="btn btn-primary"> Create Experiment</button>
+                    <hr />
+                </form>
+            </div>
+            <br />
+            <br />
+            <div>
+                <div>
+                    <h2>Experiments</h2>
+                </div>
+                <div>
+                    <hr />
+                    <div>
+                        <div>Best solution results:</div>
+                        <div id="info"></div>
+                    </div>
+                </div>
+                <div class="collapse" id="solutionTable"></div>
+                <hr />
+                <button type="button" class="btn btn-primary" onclick="nextGeneration()">Simulate new generation</button>
+                <hr />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
